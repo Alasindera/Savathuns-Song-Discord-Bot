@@ -17,3 +17,5 @@ client.on('message', msg => {
 		msg.channel.send(randomLine); 
 	}
 });
+
+client.login ('TOKEN');   
