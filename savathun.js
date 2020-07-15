@@ -12,10 +12,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-	if (msg.content === 'test') {
+	if (msg.content.includes('test')) {
 		var randomLine = savathunSongLines[Math.floor(Math.random() * savathunSongLines.length)];
 		msg.channel.send(randomLine); 
 	}
 });
-
-client.login ('TOKEN');   
