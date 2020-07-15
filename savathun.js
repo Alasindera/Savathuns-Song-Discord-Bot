@@ -20,7 +20,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-	if (msg.content.includes(commandSendSongLine)) {
+	if (msg.content.startswith(commandSendSongLine)) {
 		var randomLine = savathunSongLines[Math.floor(Math.random() * savathunSongLines.length)];
 		msg.channel.send(randomLine); 
 	}
@@ -28,14 +28,14 @@ client.on('message', msg => {
 
 // There are a fuckton of features we could add for raid scheduling. This is just a basic thing to show the idea.
 client.on('message', msg => {
-	if (msg.content.includes(commandGetRaidTime)) {
+	if (msg.content.startswith(commandGetRaidTime)) {
 		// idk if this is actually how string escapes work in javascript because I never write shit in js, but google says it is
 		msg.channel.send(`The next raid is on ${nextRaidTime}`); 
 	}
 });
 
 client.on('message', msg => {
-	if (msg.content.includes(setRaidTime)) {
+	if (msg.content.startswith(setRaidTime)) {
 		nextRaidTime = setRaidTime.substr(9);
 		msg.channel.send(`Raid time scheduled! It will take place on ${nextRaidTime}`); 
 	}
